@@ -223,7 +223,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Preloader Background Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#212121',
                 'validate'  => 'color',
             ),
            
@@ -233,7 +232,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Preloader Circle Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#A58EFF',
                 'validate'  => 'color',
                 'output'    => array('background' => '.lds-ellipsis div')
             ),
@@ -271,7 +269,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Body Backgroud Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick body background color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',
             ),
 
@@ -280,7 +277,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Text Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick text color', 'heartly'),
-                'default'   => '#243757',
                 'validate'  => 'color',
             ),
 
@@ -289,7 +285,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Primary Color', 'heartly'),
                 'subtitle'  => esc_html__('Select Primary Color.', 'heartly'),
-                'default'   => '#01A66B',
                 'validate'  => 'color',
             ),
 
@@ -298,7 +293,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Secondary Color', 'heartly'),
                 'subtitle'  => esc_html__('Select Secondary Color.', 'heartly'),
-                'default'   => '#005651',
                 'validate'  => 'color',
             ),
 
@@ -307,7 +301,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Input Background Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick Input Background color', 'heartly'),
-                'default'   => '#E6F7F1',
                 'validate'  => 'color',
             ),
 
@@ -316,7 +309,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Link Hover Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick link hover color', 'heartly'),
-                'default'   => '#01A66B',
                 'validate'  => 'color',
             ),
 
@@ -339,7 +331,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Background Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#01A66B',
                 'validate'  => 'color',
                 'output'    => array('background-color' => '.themephi-button a')
             ),
@@ -387,7 +378,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Background Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#0F2923',
                 'validate'  => 'color',
                 'output'    => array('background-color' => '.themephi-button.secondary_btn a')
             ),
@@ -397,7 +387,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Hover Background', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#FFFFFF',
                 'validate'  => 'color',
                 'output'    => array('background' => '.themephi-button.secondary_btn a:after')
 
@@ -408,7 +397,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Text Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',
                 'output'    => array('.themephi-button.secondary_btn a')
             ),
@@ -418,7 +406,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Hover Text Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#0F2923',
                 'validate'  => 'color',
                 'output'    => array('.themephi-button.secondary_btn a:after')
             ),
@@ -460,7 +447,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Background Bg Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#005651',
                 'validate'  => 'color',
             ),
 
@@ -469,7 +455,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Banner Title Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#FFFFFF',
                 'validate'  => 'color',               
             ),
 
@@ -573,7 +558,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -590,7 +574,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -605,7 +588,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -622,7 +604,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -638,7 +619,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -655,7 +635,6 @@ Redux::setSection(
                 'units'       => 'px',
                 'subtitle'    => esc_html__('Typography option with each property can be called individually.', 'heartly'),
                 'default'     => array(
-                    'color'       => '#1C1E30',
                     'font-style'  => '600',
                     'font-family' => '',
                     'google'      => true,
@@ -689,7 +668,6 @@ Redux::setSection( $opt_name, array(
                 'type'      => 'color',                           
                 'title'     => esc_html__('Sinlge Team Body Backgroud Color','heartly'),
                 'subtitle'  => esc_html__('Pick body background color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',                        
             ),
         
@@ -915,7 +893,6 @@ Redux::setSection( $opt_name, array(
                 'type'      => 'color',
                 'title'     => esc_html__('Project Information Area Background', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',
                 'output'    => array('background' => '.big-bg-porduct-details .project-info')
             ),
@@ -966,7 +943,6 @@ Redux::setSection( $opt_name, array(
                 'type'      => 'color',
                 'title'     => esc_html__('Project Information Area Background', 'heartly'),
                 'subtitle'  => esc_html__('Pick color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',
                 'output'    => array('background' => '.big-bg-service-details .service-info')
             ),
@@ -1013,7 +989,6 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Body Backgroud Color', 'heartly'),
                 'subtitle'  => esc_html__('Pick body background color', 'heartly'),
-                'default'   => '#ffffff',
                 'validate'  => 'color',
             ),
 

@@ -224,11 +224,9 @@ function heartly_custom_colors()
 				border-color: <?php echo sanitize_hex_color($heartly_option['preloader_animate_color2']); ?> transparent transparent transparent;
 			}
 
-			<?php endif; ?><?php if (!empty($heartly_option['align_breadcrumb'])) : ?>.themephi-breadcrumbs .breadcrumbs-inner {
-				text-align: <?php echo esc_attr($heartly_option['align_breadcrumb']); ?> !important;
-			}
+			<?php endif; ?>
 
-			<?php endif; ?><?php if (!empty($heartly_option['page_title_color'])) : ?>.themephi-breadcrumbs .page-title {
+			<?php if (!empty($heartly_option['page_title_color'])) : ?>.themephi-breadcrumbs .page-title {
 				color: <?php echo sanitize_hex_color($heartly_option['page_title_color']); ?> !important;
 			}
 
@@ -241,6 +239,18 @@ function heartly_custom_colors()
 
 		<?php
 	}
+	
+	// Breadcrumb alignment - Always output regardless of body color
+	?>
+	<style>
+		<?php 
+		// Use default 'center' if align_breadcrumb is not set
+		$align_breadcrumb = !empty($heartly_option['align_breadcrumb']) ? $heartly_option['align_breadcrumb'] : 'center';
+		?>.themephi-breadcrumbs .breadcrumbs-inner {
+			text-align: <?php echo esc_attr($align_breadcrumb); ?> !important;
+		}
+	</style>
+	<?php
 
 	if (is_home() && !is_front_page() || is_home() && is_front_page()) {
 		$padding_top        = get_post_meta(get_queried_object_id(), 'content_top', true);

@@ -19,7 +19,8 @@
       $post_meta_data = $heartly_option['page_banner_main']['url'];
     
     else: {
-      $post_meta_data2 = !empty($heartly_option['breadcrumb_bg_color'])? $heartly_option['breadcrumb_bg_color'] : '';
+      // Show breadcrumb section even if bg_color is not set (use empty or transparent)
+      $post_meta_data2 = !empty($heartly_option['breadcrumb_bg_color'])? $heartly_option['breadcrumb_bg_color'] : 'transparent';
     }
     endif;
   }  

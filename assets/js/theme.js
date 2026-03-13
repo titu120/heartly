@@ -13,22 +13,7 @@ jQuery(function ($) {
   jQuery(document).ready(function () {
     // sticky menu
 
-    var header = $(".menu-sticky");
-    var win = $(window);
-    var headerinnerHeight = $(".header-inner").innerHeight();
 
-    win.on("scroll", function () {
-      var scroll = win.scrollTop();
-      if (scroll < headerinnerHeight) {
-        header.removeClass("sticky");
-        $(".menu-area").removeClass("sticky-menu");
-        $(".header-inner").removeClass("tp-sticky");
-      } else {
-        header.addClass("sticky");
-        $(".menu-area").addClass("sticky-menu");
-        $(".header-inner").addClass("tp-sticky");
-      }
-    });
 
     $(".widget_nav_menu li a")
       .filter(function () {
