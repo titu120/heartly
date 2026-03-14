@@ -429,4 +429,30 @@ function upsoft_site_test()
 	die();
 }
 
+/**
+ * Heartly-style comment callback for single post (news-details-area).
+ */
+function heartly_comment_callback( $comment, $args, $depth ) {
+	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+	?>
+	<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( 'blog-single-comment d-flex gap-4 pt-4 pb-5', $comment ); ?>>
+		<div class="image">
+			<?php echo get_avatar( $comment, 70 ); ?>
+		</div>
+		<div class="content">
+			<div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+				<div class="con">
+					<h4><?php comment_author_link( $comment ); ?></h4>
+					<span><?php comment_date( get_option( 'date_format' ), $comment ); ?> <?php esc_html_e( 'at', 'heartly' ); ?> <?php comment_time( get_option( 'time_format' ), $comment ); ?></span>
+				</div>
+			</div>
+			<div class="comment-text mt-30 mb-4">
+				<?php comment_text(); ?>
+			</div>
+			<?php comment_reply_link( array_merge( $args, array( 'class' => 'reply', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		</div>
+	</<?php echo $tag; ?>>
+	<?php
+}
+
 

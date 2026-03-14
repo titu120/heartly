@@ -1995,14 +1995,14 @@ li.comment #respond {
   color: var(--titleColor);
   
   position: relative;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 26px;
   font-weight: 700;
   z-index: 1;
   position: relative;
   margin: 0 0 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--borderColor);
+
 }
 .themephi-sideabr .widget_block label.wp-block-search__label:before,
 .themephi-sideabr .widget_block h2:before,
@@ -2040,7 +2040,7 @@ li.comment #respond {
   border-radius: 5px;
   padding: 24px 24px 24px;
   background-color: var(--whiteColor);
-  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+
 }
 .themephi-sideabr .widget:hover:after {
   height: 70px;
@@ -2076,16 +2076,19 @@ li.comment #respond {
 .themephi-sideabr .widget_recent_entries ul li,
 .themephi-sideabr .widget_nav_menu ul li,
 .themephi-sideabr .widget_block ul li {
-  border-top: none;
-  border: none;
-  position: relative;
-  margin-bottom: 0px;
-  transition: 0.3s;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-radius: 5px;
-  background: var(--inputbgColor);
-  border: 1px solid var(--borderColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--header);
+  transition: all 0.4s ease-in-out;
+  background-color: var(--white);
+  padding: 22px 25px;
+  font-family: "Quicksand", sans-serif;
+  line-height: 1;
+  text-transform: capitalize;
+  border-radius: 8px;
 }
 .themephi-sideabr .widget_categories ul li a,
 .themephi-sideabr .widget_archive ul li a,
@@ -2094,21 +2097,11 @@ li.comment #respond {
 .themephi-sideabr .widget_recent_entries ul li a,
 .themephi-sideabr .widget_nav_menu ul li a,
 .themephi-sideabr .widget_block ul li a {
-  color: var(--bodyColor);
-  font-weight: 500;
-  transition: 0.3s;
-  padding: 15px 25px;
-  display: inline-block;
-  border-radius: 5px;
+  color: var(--header)
+
 }
-.themephi-sideabr .widget_categories ul li a:hover,
-.themephi-sideabr .widget_archive ul li a:hover,
-.themephi-sideabr .widget_pages ul li a:hover,
-.themephi-sideabr .widget_meta ul li a:hover,
-.themephi-sideabr .widget_recent_entries ul li a:hover,
-.themephi-sideabr .widget_nav_menu ul li a:hover,
-.themephi-sideabr .widget_block ul li a:hover {
-  color: var(--primaryColor);
+.themephi-sideabr .widget_categories ul li:hover{
+  background-color: var(--primaryColor);
 }
 .themephi-sideabr .widget_categories ul li span,
 .themephi-sideabr .widget_archive ul li span,
@@ -2229,19 +2222,20 @@ li.comment #respond {
 }
 .themephi-sideabr .widget_search input,
 .themephi-sideabr .bs-search input {
-  color: var(--bodyColor);
-  height: 55px;
-  padding-left: 20px;
-  padding-right: 65px;
-  border-radius: 5px;
-  background: var(--inputbgColor);
-  border: 1px solid var(--borderColor);
+  background-color: var(--white);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 16px 20px;
+  width: 100%;
+  border: none;
+  color: var(--text);
+  border-radius: 6px;
 }
 .themephi-sideabr .widget_search button,
 .themephi-sideabr .bs-search button {
   background: var(--primaryColor);
   border: medium none;
-  padding: 27px 30px;
+  padding: 28px 30px;
   position: absolute;
   right: 0px;
   top: 0;
@@ -2270,13 +2264,14 @@ li.comment #respond {
   font-size: 0;
 }
 .themephi-sideabr .widget_search button:before {
-  font-family: "tp-icons";
-  font-size: 20px;
-  content: "\e819";
+  font-family: "Font Awesome 6 Pro";
+  font-size: 18px;
+  content: "\f002";
   position: absolute;
   right: 20px;
   top: 13px;
-  color: var(--whiteColor);
+  color: var(--header);
+  font-weight: 900;
 }
 .themephi-sideabr .widget_categories ul, .themephi-sideabr .widget_recent_entries ul, .themephi-sideabr .widget_archive ul, .themephi-sideabr .widget_meta ul {
   list-style: none;
@@ -2284,7 +2279,7 @@ li.comment #respond {
 .themephi-sideabr .recent-post-widget > div + div {
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid var(--borderColor);
+  
 }
 .themephi-sideabr .recent-post-widget .post-date {
   font-size: 13px;
@@ -2326,20 +2321,22 @@ li.comment #respond {
 }
 .themephi-sideabr .tagcloud a {
   display: inline-block;
-  margin: 10px 5px 0px 0;
-  line-height: 20px;
-  padding: 6px 17px;
-  transition: all 0.3s ease;
-  background: var(--inputbgColor);
-  font-weight: 500;
-  color: var(--bodyColor);
-  font-size: 14px !important;
+  padding: 12px 18px;
+  line-height: 1;
+  font-weight: 600;
+  background: var(--white);
+  font-family: "Quicksand", sans-serif;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  border-radius: 4px;
+  font-size: 16px !important;
   
   border-radius: 3px;
 }
 .themephi-sideabr .tagcloud a:hover {
   background-color: var(--primaryColor);
-  color: var(--whiteColor);
+
 }
 
 .lesspadding .dynamic-sidebar {
@@ -2466,12 +2463,15 @@ body.search .entry-summary .blog-button a:hover {
 }
 
 .show-featured .post-img {
-  width: 100px;
+
   float: left;
   padding-right: 15px;
 }
 .show-featured .post-img img {
   border-radius: 5px;
+  width: 110px;
+  height: 100px;
+  object-fit: cover;
 }
 .show-featured .post-item {
   overflow: hidden;

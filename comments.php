@@ -4,46 +4,39 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="comments" class="comments-area">
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
+	<?php if ( have_comments() ) : ?>
+		<div class="comments-heading">
+			<h3>
+				<?php
 				$comment_count = get_comments_number();
-				if ( 1 === $comment_count ) {
-					printf(
-						/* translators: 1: title. */
-						esc_html__( 'One comments on &ldquo;%1$s&rdquo;', 'heartly' ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				} else {
-					printf( // WPCS: XSS OK.
-						/* translators: 1: comment count number, 2: title. */
-						esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'heartly' ) ),
-						number_format_i18n( $comment_count ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				}
-			?>
-		</h2><!-- .comments-title -->
-
+				printf(
+					/* translators: %s: number of comments */
+					esc_html( _n( '%s Comment', '%s Comments', $comment_count, 'heartly' ) ),
+					sprintf( '%02d', $comment_count )
+				);
+				?>
+			</h3>
+		</div>
 		<?php the_comments_navigation(); ?>
-		<ol class="comment-list">
+		<div class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-					'avatar_size' => 70,
-				) );
+			wp_list_comments( array(
+				'style'       => 'div',
+				'short_ping'  => true,
+				'avatar_size' => 70,
+				'callback'    => 'heartly_comment_callback',
+			) );
 			?>
-		</ol><!-- .comment-list -->
-		<?php the_comments_navigation();
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html__( 'Comments are closed.', 'heartly' ); ?></p>
+		</div>
 		<?php
-		endif;
-	endif; // Check for have_comments().
- comment_form();
-?>
-</div><!-- #comments -->
+		the_comments_navigation();
+		if ( ! comments_open() ) :
+			?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'heartly' ); ?></p>
+		<?php endif; ?>
+	<?php endif; ?>
+	<div class="comment-form-wrap">
+		<h3><?php esc_html_e( 'Leave a Comments', 'heartly' ); ?></h3>
+		<?php comment_form(); ?>
+	</div>
+</div>

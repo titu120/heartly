@@ -9019,6 +9019,17 @@ span {
   color: var(--header);
 }
 
+/* Blog/single sidebar widgets – box only: background + border-radius (match HTML) */
+#secondary.widget-area .themephi-sideabr .widget {
+  margin-bottom: 30px;
+  background-color: #FBF3E6;
+  padding: 30px;
+  border-radius: 14px;
+}
+#secondary.widget-area .themephi-sideabr .widget:last-child {
+  margin-bottom: 0;
+}
+
 .grt-brand-section {
   margin: 0 100px;
 }
