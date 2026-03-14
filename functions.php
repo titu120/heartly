@@ -383,9 +383,9 @@ function woo_remove_actions() {
 function upsoft_site_custom_color()
 {
 	global $heartly_option;
-	$site_color       = !empty($heartly_option['primary_color']) ? $heartly_option['primary_color'] : '#3368C6';
-	$secondary_color  = !empty($heartly_option['secondary_color']) ? $heartly_option['secondary_color'] : '#0F604D';
-	$input_bg_color  = !empty($heartly_option['input_bg_color']) ? $heartly_option['input_bg_color'] : '#E6F7F1';
+	$site_color       = !empty($heartly_option['primary_color']) ? $heartly_option['primary_color'] : '#FCDF50';
+	$secondary_color  = !empty($heartly_option['secondary_color']) ? $heartly_option['secondary_color'] : '#16333B';
+	$input_bg_color  = !empty($heartly_option['input_bg_color']) ? $heartly_option['input_bg_color'] : '#FAF6F1';
 	$hover_color  = !empty($heartly_option['link_hover_text_color']) ? $heartly_option['link_hover_text_color'] : '#EF6820';
     // Primary Color
     $custom_css = '';

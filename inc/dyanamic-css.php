@@ -249,6 +249,46 @@ function heartly_custom_colors()
 		?>.themephi-breadcrumbs .breadcrumbs-inner {
 			text-align: <?php echo esc_attr($align_breadcrumb); ?> !important;
 		}
+		
+		/* Font Awesome 6 Pro - Ensure icons display - All Variants */
+		.fa, .fa-solid, .fas, .fa-regular, .far, .fa-light, .fal, .fa-thin, .fat, .fa-sharp, .fa-brands, .fab {
+			display: inline-block !important;
+			font-style: normal !important;
+			font-variant: normal !important;
+			text-rendering: auto !important;
+			line-height: 1 !important;
+			-webkit-font-smoothing: antialiased !important;
+			-moz-osx-font-smoothing: grayscale !important;
+		}
+		.fa, .fa-solid, .fas {
+			font-family: "Font Awesome 6 Pro" !important;
+			font-weight: 900 !important;
+		}
+		.fa-regular, .far {
+			font-family: "Font Awesome 6 Pro" !important;
+			font-weight: 400 !important;
+		}
+		.fa-light, .fal {
+			font-family: "Font Awesome 6 Pro" !important;
+			font-weight: 300 !important;
+		}
+		.fa-thin, .fat {
+			font-family: "Font Awesome 6 Pro" !important;
+			font-weight: 100 !important;
+		}
+		.fa-sharp {
+			font-family: "Font Awesome 6 Pro" !important;
+		}
+		.fa-sharp.fa-solid, .fa-sharp.fas {
+			font-weight: 900 !important;
+		}
+		.fa-sharp.fa-regular, .fa-sharp.far {
+			font-weight: 400 !important;
+		}
+		.fa-brands, .fab {
+			font-family: "Font Awesome 6 Brands" !important;
+			font-weight: 400 !important;
+		}
 	</style>
 	<?php
 

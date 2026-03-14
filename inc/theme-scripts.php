@@ -11,8 +11,8 @@ function heartly_scripts() {
 	wp_enqueue_style( 'meanmenu', get_template_directory_uri().'/assets/css/meanmenu.css' );
 	wp_enqueue_style( 'offcanvas-sideslide', get_template_directory_uri().'/assets/css/offcanvas_sideslide.css' );
 	wp_enqueue_style( 'all-min', get_template_directory_uri().'/assets/css/all.min.css' );
+	wp_enqueue_style( 'heartly-theme', get_template_directory_uri().'/assets/css/theme.css', array('all-min'), time() );
 	wp_enqueue_style( 'main-css', get_template_directory_uri().'/assets/css/main.css' );
-	wp_enqueue_style( 'heartly-theme', get_template_directory_uri().'/assets/css/theme.css', array(), time() );
 	wp_enqueue_style( 'heartly-responsive', get_template_directory_uri().'/assets/css/responsive.css', array(), time() );
 	wp_enqueue_style( 'heartly-style', get_stylesheet_uri() ,array(), time());	
 

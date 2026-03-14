@@ -45,13 +45,24 @@
         ?>
         <!-- End Header Menu End -->
         <?php
-        $page_bg = get_post_meta(get_the_ID(), 'page_bg', true);
-        $primary_colors = get_post_meta(get_the_ID(), 'primary-colors', true);
-        if ($page_bg != '' && is_page()): ?>
-            <div class="main-contain offcontents" style="background-image: url('<?php echo esc_url($page_bg); ?>'); ">
-            <?php else: ?>
-                <div class="main-contain offcontents" style="background-color: <?php echo esc_attr($primary_colors); ?>;">
-                <?php endif;
-                ?>
+        // Use correct page ID: on Blog (Posts page) get_the_ID() is 0, so use page_for_posts
+        $page_id = get_the_ID();
+        if (is_home() && !is_front_page()) {
+            $page_id = (int) get_option('page_for_posts');
+        }
+        if (!$page_id && is_front_page() && get_option('show_on_front') === 'page') {
+            $page_id = (int) get_option('page_on_front');
+        }
 
+        $page_bg = $page_id ? get_post_meta($page_id, 'page_bg', true) : '';
+        $primary_colors = $page_id ? get_post_meta($page_id, 'primary-colors', true) : '';
+
+        $main_contain_style = '';
+        if (!empty($page_bg)) {
+            $main_contain_style = "background-image: url('" . esc_url($page_bg) . "');";
+        } elseif (!empty($primary_colors)) {
+            $main_contain_style = 'background-color: ' . esc_attr($primary_colors) . ';';
+        }
+        ?>
+            <div class="main-contain offcontents"<?php echo $main_contain_style ? ' style="' . $main_contain_style . '"' : ''; ?>>
                 <div id="content">

@@ -48,287 +48,70 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Responsive Layout Declaration 
 /////////////////////////////////////////////////////////// */
 :root {
-  --bodyFont: "Outfit", sans-serif;
-  --titleFont: "Outfit", sans-serif;
-  --primaryColor: #01A66B;
-  --secondaryColor: #005651;
-  --bodyColor: #4B655C;
-  --whiteColor: #FFFFFF;
-  --blackColor: #000000;
-  --titleColor: #1C1E30;
-  --borderColor: #CDE4DC;
-  --inputbgColor: #E6F7F1;
-  --softbgColor: #ECFFFC;
+  --primaryColor: #FCDF50;
+  --secondaryColor: #16333B;
+  --bodyColor: #16333B;
+  --whiteColor: #fff;
+  --blackColor: #000;
+  --titleColor: #16333B;
+  --borderColor: #FCFCFC;
+  --inputbgColor: #FAF6F1;
+  --softbgColor: #FAF6F1;
   --transition: 0.4s all ease;
 }
 
-.display-one {
-  font-size: 120px;
+/* Font Awesome 6 Pro Styles - All Variants */
+.fa, .fa-solid, .fas, .fa-regular, .far, .fa-light, .fal, .fa-thin, .fat, .fa-sharp, .fa-brands, .fab {
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
-.display-two {
-  font-size: 88px;
+.fa, .fa-solid, .fas {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 900 !important;
 }
 
-.display-three {
-  font-size: 76px;
+.fa-regular, .far {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 400 !important;
 }
 
-.display-four {
-  font-size: 60px;
+.fa-light, .fal {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 300 !important;
 }
 
-.display-five {
-  font-size: 56px;
+.fa-thin, .fat {
+  font-family: "Font Awesome 6 Pro" !important;
+  font-weight: 100 !important;
 }
 
-.display-six {
-  font-size: 48px;
+.fa-sharp {
+  font-family: "Font Awesome 6 Pro" !important;
 }
 
-.display-ex-one {
-  font-size: 200px;
+.fa-sharp.fa-solid, .fa-sharp.fas {
+  font-weight: 900 !important;
 }
 
-.fs-one,
-h1,
-h1 > a {
-  font-size: 70px;
+.fa-sharp.fa-regular, .fa-sharp.far {
+  font-weight: 400 !important;
 }
 
-.fs-two,
-h2,
-h2 > a {
-  font-size: 57px;
+.fa-brands, .fab {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
 }
 
-.fs-three,
-h3,
-h3 > a {
-  font-size: 43px;
-}
 
-.fs-four,
-h4,
-h4 > a {
-  font-size: 32px;
-}
 
-.fs-five,
-h5,
-h5 > a {
-  font-size: 24px;
-  line-height: 150%;
-}
 
-.fs-six,
-h6,
-h6 > a {
-  font-size: 18px;
-  line-height: 150%;
-}
 
-.fs-seven {
-  font-size: 16px;
-  line-height: 150%;
-}
-
-.fs-eight {
-  font-size: 14px;
-  line-height: 150%;
-}
-
-.fs-nine {
-  font-size: 12px;
-  line-height: 150%;
-}
-
-table thead tr th {
-  font-size: 18px;
-  line-height: 150%;
-}
-
-@media (max-width: 1199px) {
-  h1, h1 > a {
-    font-size: 57px;
-    line-height: 74.1px;
-  }
-  h2, h2 > a {
-    font-size: 43px;
-    line-height: 55.9px;
-  }
-  .preloader {
-    background-size: 30%;
-  }
-  .display-ex-one {
-    font-size: 140px;
-  }
-}
-.pt-120 {
-  padding-top: 120px;
-}
-
-.pb-120 {
-  padding-bottom: 120px;
-}
-
-@media (max-width: 991px) {
-  .display-one {
-    font-size: 72px;
-    line-height: 86.4px;
-  }
-  .display-two {
-    font-size: 64px;
-    line-height: 76.8px;
-  }
-  .display-three {
-    font-size: 56px;
-    line-height: 67.2px;
-  }
-  .display-four {
-    font-size: 48px;
-    line-height: 46.4px;
-  }
-  .display-five {
-    font-size: 42px;
-    line-height: 54.6px;
-  }
-  .display-six {
-    font-size: 32px;
-    line-height: 38.4px;
-  }
-  .display-ex-one {
-    font-size: 120px;
-  }
-  .fs-one,
-  h1,
-  h1 > a {
-    font-size: 40px;
-    line-height: 48px;
-  }
-  .fs-two,
-  h2,
-  h2 > a {
-    font-size: 32px;
-    line-height: 38.4px;
-  }
-  .fs-three,
-  h3,
-  h3 > a {
-    font-size: 24px;
-    line-height: 31.2px;
-  }
-  .fs-four,
-  h4,
-  h4 > a {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  .fs-five,
-  h5,
-  h5 > a {
-    font-size: 18px;
-    line-height: 20.8px;
-  }
-  .fs-six,
-  h6,
-  h6 > a {
-    font-size: 16px;
-    line-height: 18.8px;
-  }
-  .fs-seven {
-    font-size: 14px;
-    line-height: 18.8px;
-  }
-  .fs-eight {
-    font-size: 12px;
-    line-height: 18px;
-  }
-  table thead tr th {
-    font-size: 15px;
-    line-height: 20.8px;
-  }
-  .pt-120 {
-    padding-top: 60px;
-  }
-  .pb-120 {
-    padding-bottom: 60px;
-  }
-  .banner-section .overlay .sec-img {
-    display: none;
-  }
-  .banner-section .banner-content {
-    padding: 80px 0 90px;
-  }
-}
-@media (max-width: 575px) {
-  .display-one {
-    font-size: 56px;
-    line-height: 67.2px;
-  }
-  .display-two {
-    font-size: 48px;
-    line-height: 46.4px;
-  }
-  .display-three {
-    font-size: 42px;
-    line-height: 54.6px;
-  }
-  .display-four {
-    font-size: 32px;
-    line-height: 38.4px;
-  }
-  .display-five {
-    font-size: 24px;
-    line-height: 31.2px;
-  }
-  .display-six {
-    font-size: 32px;
-    line-height: 38.4px;
-  }
-  .display-ex-one {
-    font-size: 70px;
-  }
-  .pt-120 {
-    padding-top: 50px;
-  }
-  .pb-120 {
-    padding-bottom: 50px;
-  }
-}
-/*contact layout*/
-input[type=submit] {
-  border: none;
-  padding: 10px 18px;
-}
-
-body div textarea {
-  padding: 10px 18px;
-  height: 160px;
-  border: 0;
-}
-
-input[type=text],
-input[type=number],
-input[type=email],
-input[type=url],
-select,
-input[type=password] {
-  padding: 0 25px;
-  border: 1px solid var(--borderColor);
-  margin-bottom: 10px;
-  height: 50px;
-  background-color: var(--inputbgColor);
-  border-radius: 5px;
-}
-input[type=text]:focus,
-input[type=number]:focus,
-input[type=email]:focus,
-input[type=url]:focus,
-select:focus,
-input[type=password]:focus {
-  outline: 1px solid var(--primaryColor);
-}
 
 .wp-block-search .wp-block-search__button {
   margin-left: 0;
@@ -360,13 +143,6 @@ input[type=password]:focus {
   margin-bottom: 10px;
 }
 
-div textarea {
-  border: 1px solid var(--borderColor);
-}
-
-input[type=submit] {
-  background: var(--primaryColor);
-}
 
 div.wpcf7 .ajax-loader {
   position: absolute;
@@ -1138,7 +914,7 @@ div.wpcf7-acceptance-missing {
 }
 .themephi-blog .blog-item .blog-button a {
   padding: 17px 33px;
-  font-family: var(--titleFont);
+  
   line-height: 1;
   max-width: -moz-max-content;
   max-width: max-content;
@@ -1343,7 +1119,7 @@ body.archive .themephi-blog .blog-item {
 .wp-block-pullquote cite {
   color: var(--bodyColor);
   font-size: 16px;
-  font-family: var(--bodyFont);
+  
 }
 
 iframe[title="VideoPress Video Player"] {
@@ -1383,7 +1159,7 @@ body .wp-block-quote.is-style-large:not(.is-style-plain) p {
   font-size: 24px;
   line-height: 1.5;
   font-weight: 600;
-  font-family: var(--titleFont);
+  
   margin-bottom: 15px;
 }
 blockquote p a,
@@ -1434,7 +1210,7 @@ body .wp-block-pullquote blockquote, body .wp-block-pullquote cite, body .wp-blo
   clear: both;
   padding: 20px 0 0px;
   color: var(--titleColor);
-  font-family: var(--titleFont);
+  
   font-weight: 700;
   font-size: 18px;
 }
@@ -1444,7 +1220,7 @@ body .wp-block-pullquote blockquote, body .wp-block-pullquote cite, body .wp-blo
   line-height: 27px;
   height: 31px;
   padding: 0px 10px;
-  font-family: var(--titleFont);
+  
   font-size: 14px !important;
   transition: all 0.3s ease;
   font-weight: 500 !important;
@@ -1565,7 +1341,7 @@ body .wp-block-pullquote blockquote, body .wp-block-pullquote cite, body .wp-blo
   position: relative;
   line-height: 30px;
   color: var(--titleColor);
-  font-family: var(--titleFont);
+  
   font-weight: 600;
 }
 .themephi-blog-details .author-block .author-title:after {
@@ -1595,7 +1371,7 @@ body .wp-block-pullquote blockquote, body .wp-block-pullquote cite, body .wp-blo
 }
 .themephi-blog-details #reply-title {
   font-size: 30px;
-  font-family: var(--titleFont);
+  
   font-weight: 700;
   margin-bottom: 20px;
   margin-top: 0px;
@@ -2217,7 +1993,7 @@ li.comment #respond {
 .themephi-sideabr .widget_block h2,
 .themephi-sideabr .widget-title {
   color: var(--titleColor);
-  font-family: var(--titleFont);
+  
   position: relative;
   font-size: 24px;
   line-height: 26px;
@@ -2530,7 +2306,7 @@ li.comment #respond {
   color: var(--bodyColor);
   transition: var(--transition);
   font-size: 16px;
-  font-family: var(--titleFont);
+  
   font-weight: 600;
   position: relative;
 }
@@ -2558,7 +2334,7 @@ li.comment #respond {
   font-weight: 500;
   color: var(--bodyColor);
   font-size: 14px !important;
-  font-family: var(--bodyFont);
+  
   border-radius: 3px;
 }
 .themephi-sideabr .tagcloud a:hover {
@@ -3358,7 +3134,7 @@ li.hide-firsts > a {
   padding: 5px 20px;
   color: var(--titleColor);
   font-weight: 500;
-  font-family: var(--bodyFont);
+  
   margin: 0 0;
   transition: all 0.3s;
 }
@@ -4916,7 +4692,7 @@ figure.gallery-item:hover .gallery-icon a img {
   font-size: 16px;
   line-height: 24px;
   color: var(--bodyColor);
-  font-family: var(--titleFont);
+  
   transition: 0.3s;
 }
 .single-teams .adress-box .address-content h5 {
@@ -4946,7 +4722,7 @@ html,
 body {
   font-size: 16px;
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   vertical-align: baseline;
   line-height: 1.6;
   font-weight: 400;
@@ -4983,7 +4759,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--titleFont);
+  
   color: var(--titleColor);
   margin: 0 0 0;
   font-weight: 700;
@@ -5493,7 +5269,7 @@ code {
   display: inline-block;
   text-transform: capitalize;
   font-size: 16px;
-  font-family: var(--bodyFont);
+  
   font-weight: 500;
   color: var(--whiteColor);
   background: var(--secondaryColor);
@@ -5540,60 +5316,7 @@ input[type=submit]:hover {
   border-radius: 0 3px 3px 0;
 }
 
-input[type=text],
-input[type=number],
-input[type=password],
-textarea,
-input[type=email] {
-  color: var(--bodyColor);
-  width: 100%;
-  max-width: 100%;
-  opacity: 1;
-}
-input[type=text]::-webkit-input-placeholder,
-input[type=number]::-webkit-input-placeholder,
-input[type=password]::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder,
-input[type=email]::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: var(--bodyColor);
-  opacity: 1;
-}
-input[type=text]::-moz-placeholder,
-input[type=number]::-moz-placeholder,
-input[type=password]::-moz-placeholder,
-textarea::-moz-placeholder,
-input[type=email]::-moz-placeholder {
-  /* Firefox 19+ */
-  color: var(--bodyColor);
-  opacity: 1;
-}
-input[type=text]:-ms-input-placeholder,
-input[type=number]:-ms-input-placeholder,
-input[type=password]:-ms-input-placeholder,
-textarea:-ms-input-placeholder,
-input[type=email]:-ms-input-placeholder {
-  /* IE 10+ */
-  color: var(--bodyColor);
-  opacity: 1;
-}
-input[type=text]:-moz-placeholder,
-input[type=number]:-moz-placeholder,
-input[type=password]:-moz-placeholder,
-textarea:-moz-placeholder,
-input[type=email]:-moz-placeholder {
-  /* Firefox 18- */
-  color: var(--bodyColor);
-  opacity: 1;
-}
 
-select {
-  color: var(--bodyColor);
-  cursor: pointer;
-}
-select:valid {
-  color: var(--bodyColor);
-}
 
 /*--------------------------------------------------------------
 ## Links
@@ -5842,7 +5565,7 @@ a:active {
   padding: 12px 0;
   display: block;
   color: var(--titleColor);
-  font-family: var(--bodyFont);
+  
   line-height: 25px;
   font-weight: 600 !important;
   border-bottom: 1px solid rgba(75, 101, 92, 0.168627451);
@@ -6468,7 +6191,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
   transition: 0.3s;
   line-height: 10px;
   text-transform: capitalize;
-  font-family: var(--titleFont);
+  
   height: 50px;
   padding: 20px 18px !important;
 }
@@ -6585,7 +6308,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 
 .zq_section-text {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 400;
   line-height: 1.77;
@@ -6629,7 +6352,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 }
 .zq_portfolio_details-info-item span {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -6638,7 +6361,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 }
 .zq_portfolio_details-info-item p {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
@@ -6653,7 +6376,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 
 .zq_team_details-content-subtitle {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -6704,7 +6427,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 .zq_team_details-contact-item span {
   display: block;
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -6712,7 +6435,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 .zq_team_details-contact-item p {
   display: block;
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
@@ -6722,7 +6445,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 .zq_team_details-contact-item a {
   display: block;
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
@@ -6736,7 +6459,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 
 .zq_skill-content-text {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -6764,7 +6487,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 }
 .zq_skill-content-progress .progress-title span {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
@@ -6772,7 +6495,7 @@ body.logged-in .cart-icon-total-products.visible-cart {
 }
 .zq_skill-content-progress .progress-title p {
   color: var(--bodyColor);
-  font-family: var(--bodyFont);
+  
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;

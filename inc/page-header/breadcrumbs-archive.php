@@ -7,11 +7,17 @@
             $header_trans = 'heads_trans';    
         }
     }
+    
+    // Get bottom shape image
+    $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) ? $heartly_option['breadcrumb_bottom_shape']['url'] : '';
+    
+    // Get header width
+    $header_width = 'container';
 ?>
 <?php 
   $post_meta_data = get_post_meta(get_the_ID(), 'banner_image', true);
   $post_meta_data2 = '';
-    //theme option chekcing
+    //theme option checking
   if($post_meta_data == ''){
     if(!empty($heartly_option['page_banner_main']['url'])):
       $post_meta_data = $heartly_option['page_banner_main']['url'];
@@ -36,11 +42,11 @@
   $intro_content_banner = get_post_meta(get_the_ID(), 'intro_content_banner', true); 
 ?>
 
-<div class="themephi-breadcrumbs porfolio-details <?php echo esc_attr($header_trans);?>">
-    <?php  if(is_post_type_archive('events')){
+<div class="breadcrumb-wrapper bg-cover <?php echo esc_attr($header_trans);?>" <?php if(!empty($post_meta_data)): ?>style="background-image: url('<?php echo esc_url($post_meta_data); ?>');"<?php elseif(!empty($post_meta_data2)): ?>style="background-color: <?php echo esc_attr($post_meta_data2);?>;"<?php endif; ?>>
+    <?php  
+    if(is_post_type_archive('events')){
         $archive_banner = !empty($heartly_option['event_banner_main']['url']) ? $heartly_option['event_banner_main']['url'] : '';
     }
-    
     else{
         $archive_banner = !empty($heartly_option['blog_banner_main']['url']) ? $heartly_option['blog_banner_main']['url'] : '';
     }
@@ -50,92 +56,195 @@
     endif;
 
    if(!empty($archive_banner)) { ?>
-    <div class="breadcrumbs-single" style="background:<?php echo esc_attr($heartly_option['breadcrumb_bg_color']);?>">
-      <img src="<?php echo esc_url($post_meta_data); ?>" alt="<?php echo esc_attr__('breadcrumb image', 'heartly'); ?>">
-      <div class="container">
-        <div class="breadcrumbs-inner">
-            <div class="row">
-              <div class="col-lg-12">             
-
-                <?php if (empty($heartly_option['show_banner__course'])) {
-                    if(!empty($heartly_option['event_info']) && is_post_type_archive('events')){
-                        echo '<h1 class="page-title a">'.esc_html($heartly_option['event_info']).'</h1>';
-                            if( !empty($heartly_option['off_breadcrumb_event'])){
-                                if(function_exists('bcn_display')){?>
-                                    <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                                <?php } 
-                            }                 
+    <div class="<?php echo esc_attr($header_width);?>">
+        <div class="page-heading">
+            <?php if (empty($heartly_option['show_banner__course'])) {
+                if(!empty($heartly_option['event_info']) && is_post_type_archive('events')){
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">'.esc_html($heartly_option['event_info']).'</h1></div>';
+                    if( !empty($heartly_option['off_breadcrumb_event'])){
+                        if(function_exists('bcn_display')){?>
+                            <ul class="breadcrumb-items">
+                                <?php
+                                if(function_exists('bcn_display_list')){
+                                    $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                    if(!empty($breadcrumb_output)) {
+                                        $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                        $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                        echo $breadcrumb_output;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        <?php } 
+                    }                 
+                }
+                elseif(!empty($heartly_option['notice_info']) && is_post_type_archive('notices')){
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">'.esc_html($heartly_option['notice_info']).'</h1></div>';  
+                    if(!empty($heartly_option['off_breadcrumb_notice'])){
+                        if(function_exists('bcn_display')){?>
+                            <ul class="breadcrumb-items">
+                                <?php
+                                if(function_exists('bcn_display_list')){
+                                    $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                    if(!empty($breadcrumb_output)) {
+                                        $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                        $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                        echo $breadcrumb_output;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        <?php } 
+                    }                 
+                } else {
+                    $archive_title = get_the_archive_title();
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">' . $archive_title . '</h1></div>';
+                } 
+            }          
+            ?>   
+            <?php if(!empty($heartly_option['off_breadcrumb'])){
+                if(function_exists('bcn_display')){?>
+                    <ul class="breadcrumb-items">
+                        <?php
+                        global $breadcrumb_navxt;
+                        if($breadcrumb_navxt !== null) {
+                            $breadcrumb_navxt->breadcrumb_trail->fill();
+                            $breadcrumbs = $breadcrumb_navxt->breadcrumb_trail->breadcrumbs;
+                            $count = count($breadcrumbs);
+                            $i = 0;
+                            foreach($breadcrumbs as $breadcrumb) {
+                                $i++;
+                                if($breadcrumb instanceof bcn_breadcrumb) {
+                                    $is_last = ($i == $count);
+                                    ?>
+                                    <li>
+                                        <?php if(!$is_last && $breadcrumb->get_url()): ?>
+                                            <a href="<?php echo esc_url($breadcrumb->get_url()); ?>">
+                                                <?php if($i == 1): ?>
+                                                    <i class="fa-solid fa-house"></i>
+                                                <?php endif; ?>
+                                                <?php echo esc_html($breadcrumb->get_title()); ?>
+                                            </a>
+                                        <?php else: ?>
+                                            <?php echo esc_html($breadcrumb->get_title()); ?>
+                                        <?php endif; ?>
+                                    </li>
+                                    <?php if(!$is_last): ?>
+                                        <li>/</li>
+                                    <?php endif; ?>
+                                <?php
+                                }
+                            }
                         }
-                        elseif(!empty($heartly_option['notice_info']) && is_post_type_archive('notices')){
-                        echo '<h1 class="page-title b">'.esc_html($heartly_option['notice_info']).'</h1>';  
-                        if(!empty($heartly_option['off_breadcrumb_notice'])){
-                            if(function_exists('bcn_display')){?>
-                                <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                            <?php } 
-                        }                 
-                        } else {
-                        the_archive_title( '<h1 class="page-title c">', '</h1>' );
-                        
-                    } 
-                }          
-                ?>   
-                </div>
-                <div class="col-lg-12">
-                        <?php if(!empty($heartly_option['off_breadcrumb'])){
-                            if(function_exists('bcn_display')){?>
-                                <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                            <?php } 
-                        }   ?>
-                    </div>
-              </div>
-            </div>
-      </div>
+                        ?>
+                    </ul>
+                <?php } 
+            }   ?>
+        </div>
     </div>
   <?php }
   else{   
   ?>
-  <div class="breadcrumbs-single" style="background:<?php echo esc_attr($heartly_option['breadcrumb_bg_color']);?>">  
-    <div class="container">
-        <div class="breadcrumbs-inner">
-            <div class="row">
-              <div class="col-lg-12">              
-
-                <?php if (empty($heartly_option['show_banner__course'])) {
-                    if(!empty($heartly_option['event_info']) && is_post_type_archive('events')){
-                        echo '<h1 class="page-title a">'.esc_html($heartly_option['event_info']).'</h1>';
-                            if( !empty($heartly_option['off_breadcrumb_event'])){
-                                if(function_exists('bcn_display')){?>
-                                    <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                                <?php } 
-                            }                 
+    <div class="<?php echo esc_attr($header_width);?>">
+        <div class="page-heading">
+            <?php if (empty($heartly_option['show_banner__course'])) {
+                if(!empty($heartly_option['event_info']) && is_post_type_archive('events')){
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">'.esc_html($heartly_option['event_info']).'</h1></div>';
+                    if( !empty($heartly_option['off_breadcrumb_event'])){
+                        if(function_exists('bcn_display')){?>
+                            <ul class="breadcrumb-items">
+                                <?php
+                                if(function_exists('bcn_display_list')){
+                                    $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                    if(!empty($breadcrumb_output)) {
+                                        $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                        $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                        echo $breadcrumb_output;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        <?php } 
+                    }                 
+                }
+                elseif(!empty($heartly_option['notice_info']) && is_post_type_archive('notices')){
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">'.esc_html($heartly_option['notice_info']).'</h1></div>';  
+                    if(!empty($heartly_option['off_breadcrumb_notice'])){
+                        if(function_exists('bcn_display')){?>
+                            <ul class="breadcrumb-items">
+                                <?php
+                                if(function_exists('bcn_display_list')){
+                                    $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                    if(!empty($breadcrumb_output)) {
+                                        $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                        $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                        $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                        echo $breadcrumb_output;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        <?php } 
+                    }                 
+                } else {
+                    $archive_title = get_the_archive_title();
+                    echo '<div class="breadcrumb-sub-title"><h1 class="text-white split-title">' . $archive_title . '</h1></div>';
+                } 
+            }          
+            ?>   
+            <?php if(!empty($heartly_option['off_breadcrumb'])){
+                if(function_exists('bcn_display')){?>
+                    <ul class="breadcrumb-items">
+                        <?php
+                        global $breadcrumb_navxt;
+                        if($breadcrumb_navxt !== null) {
+                            $breadcrumb_navxt->breadcrumb_trail->fill();
+                            $breadcrumbs = $breadcrumb_navxt->breadcrumb_trail->breadcrumbs;
+                            $count = count($breadcrumbs);
+                            $i = 0;
+                            foreach($breadcrumbs as $breadcrumb) {
+                                $i++;
+                                if($breadcrumb instanceof bcn_breadcrumb) {
+                                    $is_last = ($i == $count);
+                                    ?>
+                                    <li>
+                                        <?php if(!$is_last && $breadcrumb->get_url()): ?>
+                                            <a href="<?php echo esc_url($breadcrumb->get_url()); ?>">
+                                                <?php if($i == 1): ?>
+                                                    <i class="fa-solid fa-house"></i>
+                                                <?php endif; ?>
+                                                <?php echo esc_html($breadcrumb->get_title()); ?>
+                                            </a>
+                                        <?php else: ?>
+                                            <?php echo esc_html($breadcrumb->get_title()); ?>
+                                        <?php endif; ?>
+                                    </li>
+                                    <?php if(!$is_last): ?>
+                                        <li>/</li>
+                                    <?php endif; ?>
+                                <?php
+                                }
+                            }
                         }
-                        elseif(!empty($heartly_option['notice_info']) && is_post_type_archive('notices')){
-                        echo '<h1 class="page-title b">'.esc_html($heartly_option['notice_info']).'</h1>';  
-                        if(!empty($heartly_option['off_breadcrumb_notice'])){
-                            if(function_exists('bcn_display')){?>
-                                <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                            <?php } 
-                        }                 
-                        } else {
-                        the_archive_title( '<h1 class="page-title c">', '</h1>' );
-                        
-                    } 
-                }          
-                ?>   
-                </div>
-                    <div class="col-lg-12">
-                        <?php if(!empty($heartly_option['off_breadcrumb'])){
-                            if(function_exists('bcn_display')){?>
-                                <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                            <?php } 
-                        }   ?>
-                    </div>
-              </div>
-            </div>
-      </div>
+                        ?>
+                    </ul>
+                <?php } 
+            }   ?>
+        </div>
     </div>
-  </div>
   <?php
   }
 ?>  
+    <?php if(!empty($bottom_shape_image)): ?>
+        <div class="bottom-shape d-none d-xl-block">
+            <img src="<?php echo esc_url($bottom_shape_image); ?>" alt="<?php echo esc_attr__('bottom shape', 'heartly'); ?>">
+        </div>
+    <?php endif; ?>
 </div>

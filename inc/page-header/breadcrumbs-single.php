@@ -7,12 +7,15 @@
         $header_width = !empty($heartly_option['header-grid']) ? $heartly_option['header-grid'] : '';
         $header_width = ( $header_width == 'full' ) ? 'container-fluid': 'container';
     }
+
+    // Get bottom shape image
+    $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) ? $heartly_option['breadcrumb_bottom_shape']['url'] : '';
 ?>
 
 <?php 
   $post_meta_data = get_post_meta(get_the_ID(), 'banner_image', true);
   $post_meta_data2 = '';
-    //theme option chekcing
+    //theme option checking
   if($post_meta_data == ''){
     if(!empty($heartly_option['page_banner_main']['url'])):
       $post_meta_data = $heartly_option['page_banner_main']['url'];
@@ -39,123 +42,136 @@
 
 <?php if($post_meta_data !=''){   
 ?>
-
-<div class="themephi-breadcrumbs porfolio-details">
-    <div class="breadcrumbs-single" style="background:<?php echo esc_attr($heartly_option['breadcrumb_bg_color']);?>">
-      <img src="<?php echo esc_url($post_meta_data); ?>" alt="<?php echo esc_attr__('breadcrumb image', 'heartly'); ?>">
-      <div class="<?php echo esc_attr($header_width);?>">
-        <div class="breadcrumbs-inner bread-<?php echo esc_attr($post_menu_type); ?>"> 
-            <div class="row">
+<div class="breadcrumb-wrapper bg-cover" style="background-image: url('<?php echo esc_url($post_meta_data); ?>');">
+    <div class="<?php echo esc_attr($header_width);?>">
+        <div class="page-heading">
+            <?php $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
+            <?php if($post_meta_title != 'hide'){ ?>
+                <div class="breadcrumb-sub-title">
+                    <h1 class="text-white split-title">
+                        <?php if($content_banner !=''){
+                            echo esc_html($content_banner);
+                        } else {
+                            the_title();
+                        }
+                        ?>
+                    </h1>
+                </div>
+            <?php } ?>
             
-            <div class="col-lg-12 col-md-12">
-                    <?php $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
-                        <?php if($post_meta_title != 'hide'){             
-                        if( !empty( $intro_content_banner )): ?>
-                            <span class="sub-title"><?php echo esc_html($intro_content_banner);?></span>
-                        <?php endif; ?>
-
-                        <h1 class="page-title">
-                            <?php if($content_banner !=''){
-                                echo esc_html($content_banner);
+            <?php if(!empty($heartly_option['off_breadcrumb'])){
+                $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
+                if( $rs_breadcrumbs != 'hide' ):        
+                    if(function_exists('bcn_display')){?>
+                        <ul class="breadcrumb-items">
+                            <?php
+                            if(function_exists('bcn_display_list')){
+                                $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                if(!empty($breadcrumb_output)) {
+                                    $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                    $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                    $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                    $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                    echo $breadcrumb_output;
+                                } else {
+                                    echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
+                                }
                             } else {
-                                the_title();
+                                echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
                             }
-                          ?>
-                        </h1>             
+                            ?>
+                        </ul>
                     <?php } 
-                  ?>        
-                </div>
-                <div class="col-lg-12 col-md-12">
-                  <?php if(!empty($heartly_option['off_breadcrumb'])){
-                      $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                      if( $rs_breadcrumbs != 'hide' ):        
-                      if(function_exists('bcn_display')){?>
-                          <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                      <?php } 
-                      endif;
-                  } ?>
-                </div>
-            </div>
+                endif;
+            } ?>
         </div>
-      </div>
     </div>
+    <?php if(!empty($bottom_shape_image)): ?>
+        <div class="bottom-shape d-none d-xl-block">
+            <img src="<?php echo esc_url($bottom_shape_image); ?>" alt="<?php echo esc_attr__('bottom shape', 'heartly'); ?>">
+        </div>
+    <?php endif; ?>
 </div>
 <?php } elseif($post_meta_data2 !='')
 { ?>
-<div class="themephi-breadcrumbs porfolio-details">
-    <div class="breadcrumbs-single" style="background:<?php echo esc_attr($post_meta_data2);?>">
-      <div class="<?php echo esc_attr($header_width);?>">
-        <div class="breadcrumbs-inner bread-<?php echo esc_attr($post_menu_type); ?>"> 
-              <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <?php $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
-                        <?php if($post_meta_title != 'hide'){             
-                        if( !empty( $intro_content_banner )): ?>
-                            <span class="sub-title"><?php echo esc_html($intro_content_banner);?></span>
-                        <?php endif; ?>
-
-                        <h1 class="page-title">
-                            <?php if($content_banner !=''){
-                                echo esc_html($content_banner);
+<div class="breadcrumb-wrapper bg-cover" style="background-color: <?php echo esc_attr($post_meta_data2);?>;">
+    <div class="<?php echo esc_attr($header_width);?>">
+        <div class="page-heading">
+            <?php $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
+            <?php if($post_meta_title != 'hide'){ ?>
+                <div class="breadcrumb-sub-title">
+                    <h1 class="text-white split-title">
+                        <?php if($content_banner !=''){
+                            echo esc_html($content_banner);
+                        } else {
+                            the_title();
+                        }
+                        ?>
+                    </h1>
+                </div>
+            <?php } ?>
+            
+            <?php if(!empty($heartly_option['off_breadcrumb'])){
+                $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
+                if( $rs_breadcrumbs != 'hide' ):        
+                    if(function_exists('bcn_display')){?>
+                        <ul class="breadcrumb-items">
+                            <?php
+                            if(function_exists('bcn_display_list')){
+                                $breadcrumb_output = bcn_display_list(true, true, false, false);
+                                if(!empty($breadcrumb_output)) {
+                                    $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
+                                    $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
+                                    $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
+                                    $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
+                                    echo $breadcrumb_output;
+                                } else {
+                                    echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
+                                }
                             } else {
-                                the_title();
+                                echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
                             }
-                          ?>
-                        </h1>             
+                            ?>
+                        </ul>
                     <?php } 
-                  ?>        
-                </div>
-                <div class="col-lg-12 col-md-12">
-                  <?php if(!empty($heartly_option['off_breadcrumb'])){
-                      $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                      if( $rs_breadcrumbs != 'hide' ):        
-                      if(function_exists('bcn_display')){?>
-                          <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                      <?php } 
-                      endif;
-                  } ?>
-                </div>
-            </div>
+                endif;
+            } ?>
         </div>
-      </div>
     </div>
+    <?php if(!empty($bottom_shape_image)): ?>
+        <div class="bottom-shape d-none d-xl-block">
+            <img src="<?php echo esc_url($bottom_shape_image); ?>" alt="<?php echo esc_attr__('bottom shape', 'heartly'); ?>">
+        </div>
+    <?php endif; ?>
 </div>
 <?php
-
 }
 else{   
 $post_meta_bread = get_post_meta(get_the_ID(), 'select-bread', true);?>
 <?php if($post_meta_bread =='show' || $post_meta_bread ==''){?>
-    <div class="themephi-breadcrumbs  porfolio-details">
-        <div class="themephi-breadcrumbs-inner bread-<?php echo esc_attr($post_menu_type); ?>">
-            <div class="<?php echo esc_attr($header_width);?>">
-                <div class="breadcrumbs-inner bread-<?php echo esc_attr($post_menu_type); ?>"> 
-                    <div class="row">
-                    
-                        <div class="col-lg-12 col-md-12">
-                            <?php                 
-
-                                $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
-                                  <?php if($post_meta_title != 'hide'){             
-                                if( !empty( $intro_content_banner )): ?>
-                                    <span class="sub-title"><?php echo esc_html($intro_content_banner);?></span>
-                                <?php endif; ?>
-                                <h1 class="page-title">
-                                  <?php if($content_banner !=''){
-                                      echo esc_html($content_banner);
-                                  } else {
-                                      the_title();
-                                  }
-                                  ?>
-                                </h1>             
-                            <?php } 
-                          ?>        
-                        </div>
-                        
+    <div class="breadcrumb-wrapper bg-cover">
+        <div class="<?php echo esc_attr($header_width);?>">
+            <div class="page-heading">
+                <?php $post_meta_title = get_post_meta(get_the_ID(), 'select-title', true);?>
+                <?php if($post_meta_title != 'hide'){ ?>
+                    <div class="breadcrumb-sub-title">
+                        <h1 class="text-white split-title">
+                            <?php if($content_banner !=''){
+                                echo esc_html($content_banner);
+                            } else {
+                                the_title();
+                            }
+                            ?>
+                        </h1>
                     </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
+        <?php if(!empty($bottom_shape_image)): ?>
+            <div class="bottom-shape d-none d-xl-block">
+                <img src="<?php echo esc_url($bottom_shape_image); ?>" alt="<?php echo esc_attr__('bottom shape', 'heartly'); ?>">
+            </div>
+        <?php endif; ?>
     </div>
 <?php
   }

@@ -475,6 +475,13 @@ Redux::setSection(
             ),
 
             array(
+                'id'       => 'breadcrumb_bottom_shape',
+                'type'     => 'media',
+                'title'    => esc_html__('Breadcrumb Bottom Shape Image', 'heartly'),
+                'subtitle' => esc_html__('Upload bottom shape image for breadcrumb section', 'heartly'),
+            ),
+
+            array(
                 'id'        => 'breadcrumb_top_gap',
                 'type'      => 'text',
                 'title'     => esc_html__('Top Gap', 'heartly'),
