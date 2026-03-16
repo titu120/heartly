@@ -81,10 +81,14 @@
     ================================ */
 
        $windowOn.on("scroll", function () {
-        if ($(this).scrollTop() > 250) {
-          $("#header-sticky").addClass("sticky");
+        if ($(this).scrollTop() > 100) {
+          $("#themephi-header").addClass("sticky");
+          $("#themephi-header .header-inner").addClass("tp-sticky");
+          $(".menu-area").addClass("sticky-menu");
         } else {
-          $("#header-sticky").removeClass("sticky");
+          $("#themephi-header").removeClass("sticky");
+          $("#themephi-header .header-inner").removeClass("tp-sticky");
+          $(".menu-area").removeClass("sticky-menu");
         }
       });      
       

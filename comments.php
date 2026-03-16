@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 	<?php endif; ?>
 	<div class="comment-form-wrap">
-		<h3><?php esc_html_e( 'Leave a Comments', 'heartly' ); ?></h3>
+		
 		<?php comment_form(); ?>
 	</div>
 </div>

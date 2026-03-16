@@ -74,13 +74,19 @@
                                     $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
                                     $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
                                     
-                                    // Add home icon to first link
-                                    $breadcrumb_output = preg_replace(
-                                        '/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/',
-                                        '$1<i class="fa-solid fa-house"></i> $2$3',
-                                        $breadcrumb_output,
-                                        1
-                                    );
+                                    // If first item doesn't have home icon (e.g. plugin outputs "Heartly"), replace with Home + icon
+                                    if (strpos($breadcrumb_output, 'fa-house') === false) {
+                                        $home_li = '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li>';
+                                        $breadcrumb_output = preg_replace('/^<li[^>]*>.*?<\/li>/s', $home_li, $breadcrumb_output, 1);
+                                    } else {
+                                        // Add home icon to first link and show "Home" instead of site name
+                                        $breadcrumb_output = preg_replace(
+                                            '/(<li[^>]*><a[^>]*>)(?:<i class="fa-solid fa-house"><\/i> )?[^<]*(<\/a><\/li>)/',
+                                            '$1<i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '$2',
+                                            $breadcrumb_output,
+                                            1
+                                        );
+                                    }
                                     
                                     // Add separators between items (but not after the last one)
                                     // Match closing </li> followed by any opening <li> tag
@@ -141,13 +147,19 @@
                                     $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
                                     $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
                                     
-                                    // Add home icon to first link
-                                    $breadcrumb_output = preg_replace(
-                                        '/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/',
-                                        '$1<i class="fa-solid fa-house"></i> $2$3',
-                                        $breadcrumb_output,
-                                        1
-                                    );
+                                    // If first item doesn't have home icon (e.g. plugin outputs "Heartly"), replace with Home + icon
+                                    if (strpos($breadcrumb_output, 'fa-house') === false) {
+                                        $home_li = '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li>';
+                                        $breadcrumb_output = preg_replace('/^<li[^>]*>.*?<\/li>/s', $home_li, $breadcrumb_output, 1);
+                                    } else {
+                                        // Add home icon to first link and show "Home" instead of site name
+                                        $breadcrumb_output = preg_replace(
+                                            '/(<li[^>]*><a[^>]*>)(?:<i class="fa-solid fa-house"><\/i> )?[^<]*(<\/a><\/li>)/',
+                                            '$1<i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '$2',
+                                            $breadcrumb_output,
+                                            1
+                                        );
+                                    }
                                     
                                     // Add separators between items (but not after the last one)
                                     // Match closing </li> followed by any opening <li> tag

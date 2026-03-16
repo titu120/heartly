@@ -1667,17 +1667,22 @@ ol.comment-list .comment-respond .form-submit {
   clear: both;
 }
 .comment-respond .form-submit #submit {
-  background: var(--primaryColor);
+  font-size: 18px;
   position: relative;
-  display: inline-block;
-  padding: 15px 30px;
-  line-height: normal;
-  font-size: 16px;
+  z-index: 1;
+  overflow: hidden;
+  font-weight: 500;
   text-transform: capitalize;
-  color: var(--whiteColor);
-  transition: all 0.3s ease 0s;
-  border-radius: 5px;
-  font-weight: 600;
+  height: 58px;
+  line-height: 58px;
+  background-color: var(--theme);
+  overflow: hidden;
+  display: inline-block;
+  padding: 0 30px;
+  color: var(--header);
+  border-radius: 50px;
+  font-family: "Inter", sans-serif;
+  border: none !important;
 }
 .comment-respond .form-submit #submit:hover {
   background: var(--secondaryColor);
@@ -1688,14 +1693,7 @@ ol.comment-list .comment-respond .form-submit {
   display: none;
 }
 
-.comments-area {
-  padding: 35px 40px;
-  padding-bottom: 45px;
-  background: var(--whiteColor);
-  border-radius: 5px;
-  margin-bottom: 40px;
-  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
-}
+
 .comments-area ol.children {
   padding: 0;
 }
@@ -1812,29 +1810,32 @@ ol.comment-list .comment-respond .form-submit {
 }
 .comments-area p.comment-form-author input {
   width: 100%;
-  height: 50px;
-  padding: 0px 20px;
-  border: none;
   outline: none;
-  margin-bottom: 10px;
-  border: 1px solid transparent;
-  background: var(--inputbgColor);
+  border: none;
+  background-color: var(--white);
+  border: none;
+  padding: 16px 20px;
+  font-weight: 400;
   border-radius: 5px;
+  margin-top: 5px;
+
+}
+.comments-area p.comment-form-email input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--white);
+  border: none;
+  padding: 16px 20px;
+  font-weight: 400;
+  border-radius: 5px;
+  margin-top: 8px;
+
 }
 .comments-area p.comment-form-email {
   margin-bottom: 8px;
 }
-.comments-area p.comment-form-email input {
-  width: 100%;
-  height: 50px;
-  padding: 0px 20px;
-  border: none;
-  outline: none;
-  margin-bottom: 10px;
-  border: 1px solid transparent;
-  background: var(--inputbgColor);
-  border-radius: 5px;
-}
+
 .comments-area p.comment-form-url {
   clear: both;
 }
@@ -1858,12 +1859,15 @@ ol.comment-list .comment-respond .form-submit {
 .comments-area p.comment-form-comment textarea {
   width: 100%;
   height: 160px;
-  padding: 15px 20px;
-  border: 1px solid transparent;
-  background: var(--inputbgColor);
+  margin: 10px 0;
+
+  width: 100%;
   outline: none;
-  position: relative;
-  margin-bottom: 20px;
+  border: none;
+  background-color: var(--white);
+  border: none;
+  padding: 16px 20px;
+  font-weight: 400;
   border-radius: 5px;
 }
 .comments-area .comment-navigation {
@@ -2937,7 +2941,7 @@ caption {
 ------------------------------*/
 #themephi-header {
   width: 100%;
-  z-index: 9;
+  z-index: 999999;
 }
 #themephi-header.tps-default-header .site-title a {
   color: var(--primaryColor);
@@ -3035,9 +3039,7 @@ caption {
 .header-inner.tp-sticky .box-style.box-second span {
   color: var(--blackColor);
 }
-.header-inner.tp-sticky ul.offcanvas-icon {
-  border-color: rgba(0, 0, 0, 0.1019607843) !important;
-}
+
 .header-inner.tp-sticky ul.offcanvas-icon a.nav-menu-link.menu-button span {
   background-color: var(--blackColor) !important;
 }
@@ -3064,10 +3066,7 @@ li.hide-firsts > a {
   display: none !important;
 }
 
-.menu-area .navbar ul li.current-menu-ancestor a,
-.menu-area .navbar ul > li.menu-item-has-children:hover > a:before {
-  color: var(--primaryColor);
-}
+
 
 .menu-area {
   padding-top: 0;
@@ -3098,9 +3097,7 @@ li.hide-firsts > a {
   padding: 15px 15px;
   /*Dropdown Menu area*/
 }
-.menu-area .navbar ul li.current-menu-ancestor a, .menu-area .navbar ul li.current_page_item a {
-  color: var(--primaryColor);
-}
+
 .menu-area .navbar ul li a {
   color: var(--titleColor);
   font-size: 16px;
@@ -3954,9 +3951,9 @@ nav.nav.navbar,
 }
 
 body.logged-in .menu-wrap-off {
-  padding: 63px 30px 50px 50px;
+  padding: 46px 30px 50px 36px;
+  z-index: 99999999999999999999;
 }
-
 body.logged-in .menu-wrap-off .inner-offcan .nav-link-container {
   top: 32px;
 }

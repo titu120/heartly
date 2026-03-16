@@ -52,7 +52,7 @@ if ( $is_elementor ) : ?>
                                 </div>
                                 <?php endif; ?>
                                 <div class="post-content">
-                                    <ul class="post-list d-flex align-items-center">
+                                    <ul class="post-list d-flex align-items-center list-unstyled ms-0 ">
                                         <li>
                                             <i class="fa-regular fa-user"></i>
                                             <?php echo esc_html( $author_name ); ?>

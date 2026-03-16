@@ -61,27 +61,13 @@
             
             <?php if(!empty($heartly_option['off_breadcrumb'])){
                 $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                if( $rs_breadcrumbs != 'hide' ):        
-                    if(function_exists('bcn_display')){?>
+                if( $rs_breadcrumbs != 'hide' ): ?>
                         <ul class="breadcrumb-items">
-                            <?php
-                            if(function_exists('bcn_display_list')){
-                                $breadcrumb_output = bcn_display_list(true, true, false, false);
-                                if(!empty($breadcrumb_output)) {
-                                    $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
-                                    $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
-                                    $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
-                                    $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
-                                    echo $breadcrumb_output;
-                                } else {
-                                    echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
-                                }
-                            } else {
-                                echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
-                            }
-                            ?>
+                            <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> <?php echo esc_html__('Home', 'heartly'); ?></a></li>
+                            <li>/</li>
+                            <li><?php echo esc_html__('Blog Details', 'heartly'); ?></li>
                         </ul>
-                    <?php } 
+                    <?php 
                 endif;
             } ?>
         </div>
@@ -113,27 +99,13 @@
             
             <?php if(!empty($heartly_option['off_breadcrumb'])){
                 $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                if( $rs_breadcrumbs != 'hide' ):        
-                    if(function_exists('bcn_display')){?>
+                if( $rs_breadcrumbs != 'hide' ): ?>
                         <ul class="breadcrumb-items">
-                            <?php
-                            if(function_exists('bcn_display_list')){
-                                $breadcrumb_output = bcn_display_list(true, true, false, false);
-                                if(!empty($breadcrumb_output)) {
-                                    $breadcrumb_output = preg_replace('/(<li[^>]*><a[^>]*>)([^<]+)(<\/a><\/li>)/', '$1<i class="fa-solid fa-house"></i> $2$3', $breadcrumb_output, 1);
-                                    $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*><a)/', '</li><li>/</li>', $breadcrumb_output);
-                                    $breadcrumb_output = preg_replace('/^<ul[^>]*>/', '', $breadcrumb_output);
-                                    $breadcrumb_output = preg_replace('/<\/ul>$/s', '', $breadcrumb_output);
-                                    echo $breadcrumb_output;
-                                } else {
-                                    echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
-                                }
-                            } else {
-                                echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li>/</li><li>' . esc_html(get_the_title()) . '</li>';
-                            }
-                            ?>
+                            <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> <?php echo esc_html__('Home', 'heartly'); ?></a></li>
+                            <li>/</li>
+                            <li><?php echo esc_html__('Blog Details', 'heartly'); ?></li>
                         </ul>
-                    <?php } 
+                    <?php 
                 endif;
             } ?>
         </div>

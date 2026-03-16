@@ -5,8 +5,12 @@
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
     return;
 }
-// On blog index, column wrapper is output by index.php (with order classes).
-if ( ! is_home() ) {
+// Column wrapper: skip when blog index (index.php) or page templates that already wrap sidebar in a column output it.
+$skip_wrapper = is_home()
+	|| is_page_template( 'template-blog-left-sidebar.php' )
+	|| is_page_template( 'template-blog-grid-left-sidebar.php' )
+	|| is_page_template( 'template-blog-grid-right-sidebar.php' );
+if ( ! $skip_wrapper ) {
     echo '<div class="col-lg-4">';
 }
 ?>
@@ -16,6 +20,6 @@ if ( ! is_home() ) {
     </div>
 </aside>
 <?php
-if ( ! is_home() ) {
+if ( ! $skip_wrapper ) {
     echo '</div>';
 }

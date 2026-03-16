@@ -203,12 +203,12 @@ Redux::setSection(
 );
 
 
-//Preloader settings
+//Preloader & Cursor settings
 Redux::setSection(
     $opt_name,
     array(
         'title'  => esc_html__('Preloader Style', 'heartly'),
-        'desc'   => esc_html__('Preloader Style Here', 'heartly'),
+        'desc'   => esc_html__('Preloader & cursor style here', 'heartly'),
         'fields' => array(
             array(
                 'id'       => 'show_preloader',
@@ -242,6 +242,14 @@ Redux::setSection(
                 'url'   => true,
                 'title' => esc_html__('Preloader Image', 'heartly'),
                 'type'  => 'media',
+            ),
+
+            array(
+                'id'       => 'show_mouse_cursor',
+                'type'     => 'switch',
+                'title'    => esc_html__('Show Mouse Cursor', 'heartly'),
+                'subtitle' => esc_html__('You can show or hide custom mouse cursor', 'heartly'),
+                'default'  => false,
             ),
         )
     )

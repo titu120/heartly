@@ -44,10 +44,9 @@
               <div class="col-lg-12">
                 <?php if(!empty($heartly_option['off_breadcrumb'])){
                     $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                    if( $rs_breadcrumbs != 'hide' ):        
-                    if(function_exists('bcn_display')){?>
-                        <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                    <?php } 
+                    if( $rs_breadcrumbs != 'hide' ): ?>
+                        <div class="breadcrumbs-title"><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> <?php echo esc_html__('Home', 'heartly'); ?></a> / <?php echo esc_html__('Team Details', 'heartly'); ?></div>
+                    <?php 
                     endif;
                 } ?>
               </div>
@@ -87,10 +86,9 @@ elseif (!empty($heartly_option['team_single_image']['url'])) {?>
               <div class="col-lg-12">
                 <?php if(!empty($heartly_option['off_breadcrumb'])){
                     $rs_breadcrumbs = get_post_meta(get_the_ID(), 'select-bread', true);
-                    if( $rs_breadcrumbs != 'hide' ):        
-                    if(function_exists('bcn_display')){?>
-                        <div class="breadcrumbs-title"> <?php  bcn_display();?></div>
-                    <?php } 
+                    if( $rs_breadcrumbs != 'hide' ): ?>
+                        <div class="breadcrumbs-title"><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> <?php echo esc_html__('Home', 'heartly'); ?></a> / <?php echo esc_html__('Team Details', 'heartly'); ?></div>
+                    <?php 
                     endif;
                 } ?>
               </div>
