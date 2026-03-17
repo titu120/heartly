@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Load theme textdomain on `init` (as required by WP 6.7+)
+ * to avoid `_load_textdomain_just_in_time` notices.
+ */
+function heartly_load_textdomain_on_init() {
+	load_theme_textdomain('heartly', get_template_directory() . '/languages');
+}
+add_action('init', 'heartly_load_textdomain_on_init', 1);
+
 if (!function_exists('heartly_setup')):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -13,14 +22,7 @@ if (!function_exists('heartly_setup')):
 
 	function heartly_setup()
 	{
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on heartly, use a find and replace
-		 * to change 'heartly' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain('heartly', get_template_directory() . '/languages');
-
+	
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support('automatic-feed-links');
 		/*
@@ -226,8 +228,15 @@ require_once get_template_directory() . '/inc/customizer.php';
  * Custom Style
  */
 require_once get_template_directory() . '/inc/dyanamic-css.php';
-require_once get_template_directory() . '/libs/theme-option/config.php';
 require_once get_template_directory() . '/inc/tgm/tgm-config.php';
+
+/**
+ * Load theme options (Redux config) on `init`, after the textdomain is loaded.
+ */
+function heartly_load_theme_options_config() {
+	require_once get_template_directory() . '/libs/theme-option/config.php';
+}
+add_action('init', 'heartly_load_theme_options_config', 5);
 
 
 //----------------------------------------------------------------------
@@ -456,7 +465,7 @@ function heartly_comment_callback($comment, $args, $depth)
 {
 	$tag = ('div' === $args['style']) ? 'div' : 'li';
 	?>
-	<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('blog-single-comment d-flex gap-4 pt-4 pb-5', $comment); ?>>
+	<<?php echo tag_escape( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('blog-single-comment d-flex gap-4 pt-4 pb-5', $comment); ?>>
 		<div class="image">
 			<?php echo get_avatar($comment, 70); ?>
 		</div>
@@ -474,7 +483,7 @@ function heartly_comment_callback($comment, $args, $depth)
 			</div>
 			<?php comment_reply_link(array_merge($args, array('class' => 'reply', 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
 		</div>
-	</<?php echo $tag; ?>>
+	</<?php echo tag_escape( $tag ); ?>>
 	<?php
 }
 

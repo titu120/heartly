@@ -92,7 +92,7 @@
                                     // Match closing </li> followed by any opening <li> tag
                                     $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
                                     
-                                    echo $breadcrumb_output;
+                                    echo wp_kses_post( $breadcrumb_output );
                                 } else {
                                     // Fallback
                                     echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li class="separator">/</li><li>' . esc_html(get_the_title()) . '</li>';
@@ -165,7 +165,7 @@
                                     // Match closing </li> followed by any opening <li> tag
                                     $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
                                     
-                                    echo $breadcrumb_output;
+                                    echo wp_kses_post( $breadcrumb_output );
                                 } else {
                                     // Fallback
                                     echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li class="separator">/</li><li>' . esc_html(get_the_title()) . '</li>';

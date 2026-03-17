@@ -99,7 +99,7 @@ $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) 
                                 <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i>
                                         <?php echo esc_html__('Home', 'heartly'); ?></a></li>
                                 <li class="separator">/</li>
-                                <li><?php echo $custom_breadcrumb_text; ?></li>
+                                <li><?php echo esc_html( $custom_breadcrumb_text ); ?></li>
                             </ul>
                         <?php } elseif (function_exists('bcn_display_list')) {
                             // Get breadcrumb list output
@@ -133,7 +133,7 @@ $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) 
                             }
                             ?>
                             <ul class="breadcrumb-items">
-                                <?php echo $breadcrumb_output; ?>
+                                <?php echo wp_kses_post( $breadcrumb_output ); ?>
                             </ul>
                         <?php } else { ?>
                             <ul class="breadcrumb-items">
@@ -180,7 +180,7 @@ $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) 
                                 <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i>
                                         <?php echo esc_html__('Home', 'heartly'); ?></a></li>
                                 <li class="separator">/</li>
-                                <li><?php echo $custom_breadcrumb_text; ?></li>
+                                <li><?php echo esc_html( $custom_breadcrumb_text ); ?></li>
                             </ul>
                         <?php } elseif (function_exists('bcn_display_list')) {
                             // Get breadcrumb list output
@@ -214,7 +214,7 @@ $bottom_shape_image = !empty($heartly_option['breadcrumb_bottom_shape']['url']) 
                             }
                             ?>
                             <ul class="breadcrumb-items">
-                                <?php echo $breadcrumb_output; ?>
+                                <?php echo wp_kses_post( $breadcrumb_output ); ?>
                             </ul>
                         <?php } else { ?>
                             <ul class="breadcrumb-items">

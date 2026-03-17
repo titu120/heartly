@@ -64,5 +64,5 @@
             $main_contain_style = 'background-color: ' . esc_attr($primary_colors) . ';';
         }
         ?>
-            <div class="main-contain offcontents"<?php echo $main_contain_style ? ' style="' . $main_contain_style . '"' : ''; ?>>
+            <div class="main-contain offcontents"<?php if ( $main_contain_style ) { echo ' style="' . esc_attr( $main_contain_style ) . '"'; } ?>>
                 <div id="content">

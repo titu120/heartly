@@ -59,7 +59,7 @@
                                                 );
                                             }
                                             $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                            echo $breadcrumb_output;
+                                            echo wp_kses_post( $breadcrumb_output );
                                         } else {
                                             echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li class="separator">/</li><li>' . esc_html(get_the_title()) . '</li>';
                                         }
@@ -186,7 +186,7 @@ elseif (!empty($heartly_option['service_single_image']['url'])) {?>
                                                 );
                                             }
                                             $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                            echo $breadcrumb_output;
+                                            echo wp_kses_post( $breadcrumb_output );
                                         } else {
                                             echo '<li><a href="' . esc_url(home_url('/')) . '"><i class="fa-solid fa-house"></i> ' . esc_html__('Home', 'heartly') . '</a></li><li class="separator">/</li><li>' . esc_html(get_the_title()) . '</li>';
                                         }

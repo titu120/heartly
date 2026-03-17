@@ -34,7 +34,7 @@ if ( $is_elementor ) : ?>
         <div class="container">
             <div class="news-details-area">
                 <div class="row g-4">
-                    <div class="col-12 col-lg-<?php echo esc_attr( $col_side ); ?> <?php echo esc_attr( $col_left ); ?> <?php echo ( $page_layout === '2left' ) ? 'order-1 order-lg-2' : ''; ?>">
+                    <div class="col-12 col-lg-<?php echo esc_attr( $col_side ); ?> <?php echo esc_attr( $col_left ); ?> <?php echo esc_attr( ( $page_layout === '2left' ) ? 'order-1 order-lg-2' : '' ); ?>">
                         <div class="blog-post-details">
                             <?php
                             while ( have_posts() ) :

@@ -19,7 +19,7 @@ else{
 	$page_sidebar = get_post_meta( $post->ID, 'custom_sidebar', true );
 	if($page_layout=='2left' || $page_layout=='2right'){	
 	?>
-		<div class="col-lg-4 col-12 sticky-sidebar <?php echo ( $page_layout === '2left' ) ? 'order-2 order-lg-1' : ''; ?>">
+		<div class="col-lg-4 col-12 sticky-sidebar <?php echo esc_attr( ( $page_layout === '2left' ) ? 'order-2 order-lg-1' : '' ); ?>">
 		  <aside id="secondary" class="widget-area">
 		    <div class="themephi-sideabr dynamic-sidebar">
 		      <?php

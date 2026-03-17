@@ -2493,6 +2493,10 @@ body.search .entry-summary .blog-button a:hover {
   padding: 0 45px 0 20px;
   width: 100%;
   border-radius: 5px;
+
+}
+.no-results p{
+  margin: 5px 0 20px 0;
 }
 .bs-search button {
   border: medium none;
@@ -6649,6 +6653,10 @@ body.logged-in .cart-icon-total-products.visible-cart {
 
 .sidenav .widget_nav_menu ul li:last-child a {
   border-bottom: 1px solid rgba(75, 101, 92, 0.168627451);
+}
+
+.search .main-contain #content {
+  background: #FFFCF8 !important
 }
 
 .w-1 {

@@ -21,7 +21,7 @@ $read_more_text  = ! empty( $heartly_option['blog_readmore'] ) ? $heartly_option
 <section class="grt-news-section section-padding">
 	<div class="container">
 		<div class="row g-4">
-			<div class="col-12 <?php echo $show_sidebar ? 'col-lg-8' : ''; ?>">
+			<div class="col-12 <?php echo esc_attr( $show_sidebar ? 'col-lg-8' : '' ); ?>">
 				<div class="row g-4">
 					<?php
 					if ( $blog_q->have_posts() ) :

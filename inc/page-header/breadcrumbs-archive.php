@@ -82,7 +82,7 @@
                                             );
                                         }
                                         $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                        echo $breadcrumb_output;
+                                        echo wp_kses_post( $breadcrumb_output );
                                     }
                                 }
                                 ?>
@@ -113,7 +113,7 @@
                                             );
                                         }
                                         $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                        echo $breadcrumb_output;
+                                        echo wp_kses_post( $breadcrumb_output );
                                     }
                                 }
                                 ?>
@@ -196,7 +196,7 @@
                                             );
                                         }
                                         $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                        echo $breadcrumb_output;
+                                        echo wp_kses_post( $breadcrumb_output );
                                     }
                                 }
                                 ?>
@@ -227,7 +227,7 @@
                                             );
                                         }
                                         $breadcrumb_output = preg_replace('/<\/li>\s*(?=<li[^>]*>)/', '</li><li class="separator">/</li>', $breadcrumb_output);
-                                        echo $breadcrumb_output;
+                                        echo wp_kses_post( $breadcrumb_output );
                                     }
                                 }
                                 ?>

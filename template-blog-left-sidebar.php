@@ -26,7 +26,7 @@ $show_sidebar = is_active_sidebar( 'sidebar-1' );
                     <?php get_sidebar(); ?>
                 </div>
                 <?php endif; ?>
-                <div class="col-12 <?php echo $show_sidebar ? 'col-lg-8 order-1 order-lg-2' : ''; ?>">
+                <div class="col-12 <?php echo esc_attr( $show_sidebar ? 'col-lg-8 order-1 order-lg-2' : '' ); ?>">
                     <div class="gt-news-standard-items">
                         <?php
                         if ( $blog_q->have_posts() ) :
